@@ -20,7 +20,7 @@ rules :
 ## Usage
 
 ```
-import fieldValidator from 'easy-field-validation'
+import fieldValidator from 'easy-field-validator'
 ```
 
 ```
@@ -59,7 +59,6 @@ The rules object can be overwritten as follows
 const test = fieldValidator('1', { overWriteOptions: true, min: 1, fieldName: 'Single Char'})
 
 console.log(test) -> { valid: true, message: 'Single Char is valid' }
-
 ```
 
 
