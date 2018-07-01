@@ -1,4 +1,4 @@
-# easily validate fields or passwords
+# Easy field or password validation
 
 validates fields or password using default option or js object
 
@@ -45,7 +45,7 @@ console.log(test) ->
 
 ### Custom options
 
-#### All the rules can be modified as follows
+All the rules can be modified as follows
 
 ```
 const test = fieldValidator('StrongUserName123', { min: 10, fieldName: 'UserName' })
@@ -53,7 +53,7 @@ const test = fieldValidator('StrongUserName123', { min: 10, fieldName: 'UserName
 console.log(test) -> { valid: true, message: 'UserName is valid' }
 ```
 
-#### The rules object can be overwrote as follows
+The rules object can be overwritten as follows
 
 ```
 const test = fieldValidator('1', { overWriteOptions: true, min: 1, fieldName: 'Single Char'})
