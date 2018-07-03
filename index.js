@@ -8,11 +8,10 @@ const fieldValidator = (password, params = {}) => {
     containsNoSpace: true,
     excludedWords: ['password', 'hello', '123456'],
     fieldName: 'Password',
-    overWriteOptions: false,
+    overWriteOptions: false
   }
 
   const options = params.overWriteOptions ? params : { ...defaultOptions, ...params }
-
   const {
     min,
     max,
@@ -23,9 +22,17 @@ const fieldValidator = (password, params = {}) => {
     excludedWords,
     fieldName
   } = options
-  const passwordLength = password.length
-
+  const passwordLength = password ? password.length : 0
   const errors = []
+
+  if (passwordLength === 0) {
+    return {
+      valid: false,
+      errors: [`No ${fieldName} entered`],
+      message: `${fieldName} is invalid`
+    }
+  }
+
 
   if (min && passwordLength < min) {
     errors.push(`${fieldName} is less than ${min} characters`)

@@ -4,6 +4,16 @@ const fieldValidator = require('./index')
 
 describe('Test field validator', () => {
   describe('fieldValidator', () => {
+    it('Should return fail if no password', () => {
+      const intialData = undefined
+      const expectedData = {
+        valid: false,
+        errors: ['No Password entered'],
+        message: 'Password is invalid'
+      }
+      const result = fieldValidator(intialData)
+      assert.deepEqual(expectedData, result)
+    })
     it('Should return valid if strong password', () => {
       const intialData = 'strongPassIsValid1111'
       const expectedData = { valid: true, message: 'Password is valid' }
