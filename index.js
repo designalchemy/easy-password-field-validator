@@ -25,14 +25,13 @@ const fieldValidator = (password, params = {}) => {
   const passwordLength = password ? password.length : 0
   const errors = []
 
-  if (passwordLength === 0) {
+  if (!password || passwordLength === 0) {
     return {
       valid: false,
       errors: [`No ${fieldName} entered`],
       message: `${fieldName} is invalid`
     }
   }
-
 
   if (min && passwordLength < min) {
     errors.push(`${fieldName} is less than ${min} characters`)
